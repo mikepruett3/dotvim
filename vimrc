@@ -13,8 +13,8 @@ set encoding=utf-8
 set term=xterm
 set t_Co=256
 set background=dark
-colorscheme default
-"colorscheme jellybeans
+"colorscheme default
+colorscheme jellybeans
 
 set number
 set autoindent
