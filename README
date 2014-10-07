@@ -1,10 +1,12 @@
 Installation:
 
-    git clone git://github.com/mikepruett3/dotvim.git ~/.vim
+    git clone https://github.com/mikepruett3/dotvim.git ~/.vim
 
 Create symlinks:
 
-    ln -s ~/.vim/vimrc ~/.vimrc
+    ln -s ~/.vim/vimrc ~/.vimrc (Linux)
+
+    mklink %UserProfile%\.vimrc %UserProfile%\.vim\vimrc (Windows)
 
 Switch to the "~/.vim" directory, and fetch submodules:
 
@@ -17,3 +19,7 @@ Addining new submodules (bundles) to the repository
     cd ~/.vim
     mkdir bundle (if it dosent exist already!)
     git submodule add http://github.com/<username>/<repository>.git bundle/<plugin-name>.vim
+
+Updating git repo url
+
+    git remote set-url origin git@github.com:mikepruett3/dotvim.git

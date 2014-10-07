@@ -1,49 +1,72 @@
+" Load Pathogen.vim First
 set nocp
 call pathogen#infect()
 call pathogen#helptags()
 syntax on
 
+" Check for AutoCMD file type (For Pathogen)
 if has("autocmd")
-  filetype plugin indent on
+    filetype plugin indent on
 endif
 
+" Check for multi_byte VIM support, if so, then use Unicode (UTF-8)
+if has("multi_byte")
+    if &termencoding == ""
+        let &termencoding = &encoding
+    endif
+    set encoding=utf-8
+    setglobal fileencoding=utf-8
+    "setglobal bomb
+    set fileencodings=ucs-bom,utf-8,latin1
+endif
 scriptencoding utf-8
-set encoding=utf-8
 
-set term=xterm
-set t_Co=256
+" Set the prefered Background and Colorscheme
 set background=dark
-"colorscheme default
-colorscheme jellybeans
 
-set number
-set autoindent
-set backspace=indent,eol,start
-set history=1000
-set undolevels=1000
-set ruler
-set incsearch
-set tabstop=4 shiftwidth=4 expandtab
+if (&term =~ "xterm") || (&term =~ "screen")
+    set t_Co=256
+endif
 
-set laststatus=2
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y] [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+if &t_Co >= 256 || has("gui_running")
+    colorscheme jellybeans
+else
+    colorscheme default
+endif
 
+" Setting Vim Behaviour
 set hidden
-set ignorecase
-set showmatch
-set vb
-set noerrorbells
-set showcmd
-"set mouse=a
+set nowrap                          " don't wrap lines
+set expandtab                       " Convert (expand) tabs to spaces
+set tabstop=4                       " a tab is four spaces
+set backspace=indent,eol,start      " allow backspacing over everything in insert mode
+set autoindent                      " always set autoindenting on
+set copyindent                      " copy the previous indentation on autoindenting
+set number                          " always show line numbers
+set shiftwidth=4                    " number of spaces to use for autoindenting
+set shiftround                      " use multiple of shiftwidth when indenting with '<' and '>'
+set showmatch                       " set show matching parenthesis
+set ignorecase                      " ignore case when searching
+set smartcase                       " ignore case if search pattern is all lowercase, case-sensitive otherwise
+set smarttab                        " insert tabs on the start of a line according to shiftwidth, not tabstop
+set hlsearch                        " highlight search terms
+set incsearch                       " show search matches as you type
+set showcmd                         " show information about current commands being typed
+set ruler                           " shows the current column & row number in the status bar
+set laststatus=2                    " allways display the status line
+set mouse=a                         " allways enable smart mouse support in vim
+
+" Undo settings
+set history=1000                    " remember more command and search history
+set undolevels=1000                 " use many levels of undo
+set title                           " change the terminal's title
+set visualbell                      " don't beep
+set noerrorbells                    " don't beep
 
 if has("vms")
   set nobackup
 else
   set backup
-endif
-
-if has("autocmd")
-   filetype plugin indent on
 endif
 
 augroup PatchDiffHighlight
