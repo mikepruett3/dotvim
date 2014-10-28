@@ -7,3 +7,6 @@
 [submodule "bundle/python-syntax.vim"]
 	path = bundle/python-syntax.vim
 	url = https://github.com/hdima/python-syntax.git
+[submodule "bundle/vim-preview.vim"]
+	path = bundle/vim-preview.vim
+	url = https://github.com/greyblake/vim-preview.git
