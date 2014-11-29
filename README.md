@@ -4,9 +4,13 @@ Installation:
 
 Create symlinks:
 
-    ln -s ~/.vim/vimrc ~/.vimrc (Linux)
+For Linux Based Installations:
 
-    mklink %UserProfile%\.vimrc %UserProfile%\.vim\vimrc (Windows - Needs to be run as Administrator)
+    ln -s ~/.vim/vimrc ~/.vimrc
+
+For Windows (**Needs to be run as Administrator**):
+
+    mklink %UserProfile%\.vimrc %UserProfile%\.vim\vimrc
     mklink %UserProfile%\vimfiles %UserProfile%\.vim
 
 Switch to the "~/.vim" directory, and fetch submodules:
@@ -23,4 +27,6 @@ Addining new submodules (bundles) to the repository
 
 Updating git repo url
 
-    git remote set-url origin git@github.com:mikepruett3/dotvim.git
+    git config --local user.name "<username>"
+    git config --local user.email "<user-email-address>"
+    git remote set-url origin git@github.com:<username>/<repository>.git
