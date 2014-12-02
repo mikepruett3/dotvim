@@ -11,12 +11,18 @@ endif
 
 " Check for multi_byte VIM support, if so, then use Unicode (UTF-8)
 if has("multi_byte")
-    if &termencoding == ""
-        let &termencoding = &encoding
+    if has("win32") || has("win16")
+        if &termencoding == ""
+            let &termencoding = &encoding
+        endif
+        set encoding=utf-8
+    else
+        set encoding=utf-8
+        if &termencoding == ""
+            let &termencoding = &encoding
+        endif
     endif
-    set encoding=utf-8
     setglobal fileencoding=utf-8
-    "setglobal bomb
     set fileencodings=ucs-bom,utf-8,latin1
 endif
 scriptencoding utf-8
