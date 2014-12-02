@@ -60,7 +60,9 @@ set incsearch                       " show search matches as you type
 set showcmd                         " show information about current commands being typed
 set ruler                           " shows the current column & row number in the status bar
 set laststatus=2                    " allways display the status line
-set mouse=a                         " allways enable smart mouse support in vim
+if has("win32") || has("win16")
+    set mouse=a                     " allways enable smart mouse support in vim
+endif
 
 " Undo settings
 set history=1000                    " remember more command and search history
