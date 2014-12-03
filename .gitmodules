@@ -19,3 +19,6 @@
 [submodule "bundle/vim-kolor.vim"]
 	path = bundle/vim-kolor.vim
 	url = https://github.com/zeis/vim-kolor.git
+[submodule "bundle/syntastic.git"]
+	path = bundle/syntastic.git
+	url = https://github.com/scrooloose/syntastic.git
