@@ -1,19 +1,25 @@
-"{{{ Load Pathogen.vim First 
+" Load Pathogen.vim first
 set nocp
 call pathogen#infect()
 call pathogen#helptags()
 syntax on
-"}}}
 
-"{{{ Check for AutoCMD file type (For Pathogen) 
+" Set viewdir path for Windows
+
+" Genius bit of code, lifted from:
+" http://stackoverflow.com/questions/6846898/determine-operating-system-in-vimrc
+if has("win32") || has("win16")
+    set viewdir=$HOME\.vim-view\
+endif
+
+" Check for AutoCMD file type (For Pathogen)
 if has("autocmd")
     filetype plugin indent on
 endif
-"}}}
 
-"{{{ Check for multi_byte VIM support, if so, then use Unicode (UTF-8) 
+" Check for multi_byte VIM support, if so, then use Unicode (UTF-8)
 if has("multi_byte")
-    if has("win32") || has("win16") " Genius bit of code, lifted from http://stackoverflow.com/questions/6846898/determine-operating-system-in-vimrc
+    if has("win32") || has("win16")
         if &termencoding == ""
             let &termencoding = &encoding
         endif
@@ -28,9 +34,8 @@ if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,latin1
 endif
 scriptencoding utf-8
-"}}}
 
-"{{{ Set the prefered Background and Colorscheme 
+" Set the prefered background and colorscheme
 set background=dark
 
 if (&term =~ "xterm") || (&term =~ "screen")
@@ -42,9 +47,8 @@ if &t_Co >= 256 || has("gui_running")
 else
     colorscheme default
 endif
-"}}}
 
-"{{{ Setting Vim Behaviour 
+" Setting Vim behaviour
 set hidden
 set nowrap                          " don't wrap lines
 set expandtab                       " Convert (expand) tabs to spaces
@@ -67,38 +71,33 @@ set laststatus=2                    " allways display the status line
 if has("win32") || has("win16")
     set mouse=a                     " allways enable smart mouse support in vim
 endif
-"}}}
 
-"{{{ Undo settings 
+" Undo settings
 set history=1000                    " remember more command and search history
 set undolevels=1000                 " use many levels of undo
 set title                           " change the terminal's title
 set visualbell                      " don't beep
 set noerrorbells                    " don't beep
-"}}}
 
-"{{{ No Backups for VIM Backup Files 
+" Do not create backups for VIM files
 if has("vms")
   set nobackup
 else
   set backup
 endif
-"}}}
 
-"{{{ Enable Auto-Folds for Vimrc Files 
-augroup vimrc
-    autocmd BufEnter .vimrc,vimrc,.gvimrc setlocal foldmethod=marker
-augroup END
-"}}}
+" Automatically save manual folds when exiting, and load folds when opening
+" Lifted from:
+" http://vim.wikia.com/wiki/VimTip991
+au VimLeave * mkview
+au VimEnter * silent loadview
 
-"{{{ Highlight the Differences when looking at diff files 
+" Highlight the differences when looking at diff files
 augroup PatchDiffHighlight
     autocmd!
     autocmd BufEnter  *.patch,*.rej,*.diff   syntax enable
-augroup END
-"}}}
+augroup end
 
-"{{{ Configuration for tab characters, and trailing spaces 
+" Configuration for tab characters, and trailing spaces
 set list
 let &listchars="tab:\uBB\uBB,trail:\uB7,nbsp:~"
-"}}}

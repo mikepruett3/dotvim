@@ -12,7 +12,8 @@ For Windows (**Needs to be run as Administrator**):
 
     mklink %UserProfile%\.vimrc %UserProfile%\.vim\vimrc
     mklink %UserProfile%\.gvimrc %UserProfile%\.vim\vimrc
-    mklink %UserProfile%\vimfiles %UserProfile%\.vim
+    mklink /D %UserProfile%\vimfiles %UserProfile%\.vim
+    mklink /D %UserProfile%\vimfiles\views %UserProfile%\.vim-view
 
 ## Install Submodules
 
