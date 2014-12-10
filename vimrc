@@ -72,6 +72,10 @@ if has("win32") || has("win16")
     set mouse=a                     " allways enable smart mouse support in vim
 endif
 
+command! Q q
+command! W w
+command! WQ wq
+
 " Undo settings
 set history=1000                    " remember more command and search history
 set undolevels=1000                 " use many levels of undo
@@ -96,6 +100,12 @@ au VimEnter * silent loadview
 augroup PatchDiffHighlight
     autocmd!
     autocmd BufEnter  *.patch,*.rej,*.diff   syntax enable
+augroup end
+
+" PowerShell autocommands 
+augroup PowerShell
+    autocmd FileType *.ps1 setlocal foldmethod=syntax
+    autocmd BufNewFile,BufRead *.ps1 :map! <C-T> # TODO(mike) 
 augroup end
 
 " Configuration for tab characters, and trailing spaces
