@@ -111,3 +111,26 @@ augroup end
 " Configuration for tab characters, and trailing spaces
 set list
 let &listchars="tab:\uBB\uBB,trail:\uB7,nbsp:~"
+
+" Remap Keys
+"autocmd VimEnter * unmap! r
+nnoremap <A-Left> 0
+nnoremap <A-Right> $
+nnoremap <A-Up> 5k
+nnoremap <A-Down> 5j
+nnoremap <C-Up> k$
+nnoremap <C-Down> j0
+nnoremap k gk
+nnoremap j gj
+nnoremap Q q
+nnoremap q <Nop>
+nnoremap I i
+nnoremap R r
+nnoremap <C-S> <Esc>:write<CR>
+inoremap <C-S> <C-O>:write<CR>
+vmap <C-S> <Esc>:w<CR>gv
+nnoremap <C-X> <Esc>:quit<CR>
+inoremap <C-X> <Esc>:quit<CR>
+nnoremap <C-Z> u
+nnoremap <C-Y> <CS-R>
+nnoremap <C-V> <Nop>
