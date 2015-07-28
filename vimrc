@@ -92,9 +92,11 @@ endif
 
 " Automatically save manual folds when exiting, and load folds when opening
 " Lifted from:
-" http://vim.wikia.com/wiki/VimTip991
-au VimLeave * mkview
-au VimEnter * silent loadview
+" http://vim.wikia.com/wiki/Make_views_automatic
+augroup AutoFolds
+    au BufWinLeave *.* mkview!
+    au BufWinEnter *.* silent loadview
+augroup END
 
 " Highlight the differences when looking at diff files
 augroup PatchDiffHighlight
@@ -104,9 +106,21 @@ augroup end
 
 " PowerShell autocommands 
 augroup PowerShell
+    autocmd BufNewFile,BufRead *.ps1 set filetype=ps1
+    autocmd BufNewFile,BufRead *.psd1 set filetype=ps1
+    autocmd BufNewFile,BufRead *.psm1 set filetype=ps1
+    autocmd BufNewFile,BufRead *.ps1xml set filetype=ps1xml
     autocmd FileType *.ps1 setlocal foldmethod=syntax
-    autocmd BufNewFile,BufRead *.ps1 :map! <C-T> # TODO(mike) 
-augroup end
+    autocmd BufNewFile,BufRead *.ps1 :map! <C-T> # TODO(mike)
+augroup END
+
+"Template Skeleton Load
+"http://vim.wikia.com/wiki/Use_eval_to_create_dynamic_templates
+augroup Templates
+    au!
+    " read in template files
+    autocmd BufNewFile *.* silent! execute '0r ~/.vim/headers/skeleton.'.expand("<afile>:e")
+augroup END
 
 " Configuration for tab characters, and trailing spaces
 set list
@@ -133,4 +147,4 @@ nnoremap <C-X> <Esc>:quit<CR>
 inoremap <C-X> <Esc>:quit<CR>
 nnoremap <C-Z> u
 nnoremap <C-Y> <CS-R>
-nnoremap <C-V> <Nop>
+"nnoremap <C-V> <Nop>
