@@ -111,6 +111,8 @@ augroup PowerShell
     autocmd BufNewFile,BufRead *.psm1 set filetype=ps1
     autocmd BufNewFile,BufRead *.ps1xml set filetype=ps1xml
     autocmd FileType *.ps1 setlocal foldmethod=syntax
+    autocmd FileType ps1 set shell=powershell
+    autocmd FileType ps1 set shellcmdflag=-command
     autocmd BufNewFile,BufRead *.ps1 :map! <C-T> # TODO(mike)
 augroup END
 

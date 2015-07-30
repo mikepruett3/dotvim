@@ -22,3 +22,6 @@
 [submodule "bundle/syntastic.git"]
 	path = bundle/syntastic.git
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/Conque-Shell.vim"]
+	path = bundle/Conque-Shell.vim
+	url = https://github.com/vim-scripts/Conque-Shell.git
