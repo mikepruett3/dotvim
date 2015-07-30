@@ -83,6 +83,10 @@ set title                           " change the terminal's title
 set visualbell                      " don't beep
 set noerrorbells                    " don't beep
 
+" Conque Python Settings
+let g:ConqueTerm_PyExe = 'C:\Python27\python.exe'
+let g:ConqueTerm_PyVersion = 2
+
 " Do not create backups for VIM files
 if has("vms")
   set nobackup
