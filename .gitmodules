@@ -25,3 +25,6 @@
 [submodule "bundle/Conque-Shell.vim"]
 	path = bundle/Conque-Shell.vim
 	url = https://github.com/vim-scripts/Conque-Shell.git
+[submodule "bundle/vim-cisco-ios.vim"]
+	path = bundle/vim-cisco-ios.vim
+	url = https://github.com/CyCoreSystems/vim-cisco-ios.git
