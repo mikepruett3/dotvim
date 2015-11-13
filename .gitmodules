@@ -28,3 +28,6 @@
 [submodule "bundle/vim-cisco-ios.vim"]
 	path = bundle/vim-cisco-ios.vim
 	url = https://github.com/CyCoreSystems/vim-cisco-ios.git
+[submodule "bundle/vim-junos-syntax.vim"]
+	path = bundle/vim-junos-syntax.vim
+	url = https://github.com/ClockworkNet/vim-junos-syntax.git
