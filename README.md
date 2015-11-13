@@ -1,6 +1,12 @@
 # Installation:
 
+For Linux
+
     git clone https://github.com/mikepruett3/dotvim.git ~/.vim
+
+For Windows
+
+    git clone https://github.com/mikepruett3/dotvim.git %UserProfile%\vimfiles
 
 ## Create symlinks:
 
