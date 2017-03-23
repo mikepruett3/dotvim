@@ -4,6 +4,16 @@ call pathogen#infect()
 call pathogen#helptags()
 syntax enable
 filetype plugin on
+set path+=**
+set wildmenu
+
+" NetRW File Browser Built-in Plugin Settings
+let g:netrw_banner=0            " Disables Banner
+let g:netrw_browse_split=4      " Open in the Prior Window
+let g:netrw_altv=1              " Open Splits to the right
+let g:netrw_liststyle=3         " Tree View
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 " Set viewdir path for Windows
 
