@@ -1,8 +1,9 @@
 " Load Pathogen.vim first
-set nocp
+set nocompatible
 call pathogen#infect()
 call pathogen#helptags()
-syntax on
+syntax enable
+filetype plugin on
 
 " Set viewdir path for Windows
 
