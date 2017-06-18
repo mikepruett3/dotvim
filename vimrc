@@ -54,7 +54,8 @@ if (&term =~ "xterm") || (&term =~ "screen")
 endif
 
 if &t_Co >= 256 || has("gui_running")
-    colorscheme nord
+    runtime! plugin/guicolorscheme.vim
+    GuiColorScheme nord
 else
     colorscheme default
 endif
