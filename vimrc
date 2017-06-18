@@ -54,7 +54,7 @@ if (&term =~ "xterm") || (&term =~ "screen")
 endif
 
 if &t_Co >= 256 || has("gui_running")
-    colorscheme nordisk
+    colorscheme nord-vim
 else
     colorscheme default
 endif
