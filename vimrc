@@ -55,7 +55,7 @@ endif
 
 if &t_Co >= 256 || has("gui_running")
     runtime! plugin/guicolorscheme.vim
-    GuiColorScheme jellybeans
+    colorscheme jellybeans
 else
     colorscheme default
 endif
