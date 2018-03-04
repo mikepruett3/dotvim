@@ -31,6 +31,3 @@
 [submodule "bundle/vim-junos-syntax.vim"]
 	path = bundle/vim-junos-syntax.vim
 	url = https://github.com/ClockworkNet/vim-junos-syntax.git
-[submodule "bundle/nord-vim.git"]
-	path = bundle/nord-vim.git
-	url = git://github.com/arcticicestudio/nord-vim.git
