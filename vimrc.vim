@@ -2,7 +2,8 @@
 if has("win32") || has("win16")
     set runtimepath+=$HOME\.dotvim\
 else
-    set runtimepath+=~/.dotvim
+    let &runtimepath.=','.string("~/.dotvim")
+    "set runtimepath+=~/.dotvim
 endif
 
 " Set viewdir path for Windows
@@ -12,7 +13,6 @@ if has("win32") || has("win16")
 else
     let &viewdir=expand("$HOME") . "/.views"
     if !isdirectory(expand(&viewdir))|call mkdir(expand(&viewdir), "p", 451)|endif
-    "set viewdir=$HOME/.views
 endif
 
 " Load Pathogen.vim first
