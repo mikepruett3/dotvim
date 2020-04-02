@@ -2,7 +2,7 @@
 if has("win32") || has("win16")
     set runtimepath+=$HOME\.dotvim\
 else
-    let &runtimepath.=','.string("~/.dotvim")
+    let &runtimepath.=','.string(~/.dotvim)
     "set runtimepath+=~/.dotvim
 endif
 
