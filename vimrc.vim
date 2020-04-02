@@ -5,6 +5,16 @@ else
     set runtimepath+=~/.dotvim
 endif
 
+" Set viewdir path for Windows
+" http://stackoverflow.com/questions/6846898/determine-operating-system-in-vimrc
+if has("win32") || has("win16")
+    set viewdir=$HOME\.views\
+else
+    let &viewdir=expand("$HOME") . "/.views"
+    if !isdirectory(expand(&viewdir))|call mkdir(expand(&viewdir), "p", 451)|endif
+    "set viewdir=$HOME/.views
+endif
+
 " Load Pathogen.vim first
 set nocompatible
 call pathogen#infect()
@@ -21,14 +31,6 @@ let g:netrw_altv=1              " Open Splits to the right
 let g:netrw_liststyle=3         " Tree View
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-
-" Set viewdir path for Windows
-
-" Genius bit of code, lifted from:
-" http://stackoverflow.com/questions/6846898/determine-operating-system-in-vimrc
-if has("win32") || has("win16")
-    set viewdir=$HOME\.vim-view\
-endif
 
 " Check for AutoCMD file type (For Pathogen)
 if has("autocmd")
