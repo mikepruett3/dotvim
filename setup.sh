@@ -33,3 +33,8 @@ fi
 if [[ $(grep -c "so $DOTVIM/vimrc.vim" ~/.vimrc) -eq 0 ]]; then
     echo so $DOTVIM/vimrc.vim >> ~/.vimrc
 fi
+
+# Install submodules
+cd $DOTVIM
+git submodule init
+git submodule update
