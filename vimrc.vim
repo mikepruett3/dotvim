@@ -1,3 +1,6 @@
+" Setting runtimepath to include the ~/.dotvim folder
+set runtimepath+=~/.dotvim
+
 " Load Pathogen.vim first
 set nocompatible
 call pathogen#infect()
