@@ -1,5 +1,9 @@
 " Setting runtimepath to include the ~/.dotvim folder
-set runtimepath+=~/.dotvim
+if has("win32") || has("win16")
+    set runtimepath+=$HOME\.dotvim\
+else
+    set runtimepath+=~/.dotvim
+endif
 
 " Load Pathogen.vim first
 set nocompatible
